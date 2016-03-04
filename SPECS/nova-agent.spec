@@ -6,7 +6,7 @@ Group:          System Environment/Base
 Vendor:         OpenStack
 License:        ASL 2.0
 URL:            https://github.com/rackerlabs/openstack-guest-agents-unix
-Source0:        nova-agent-Linux-x86_64-1.39.1.tar.gz
+Source0:        nova-agent-Linux-x86_64-%{version}.tar.gz
 ExclusiveArch:  x86_64
 
 # these are important

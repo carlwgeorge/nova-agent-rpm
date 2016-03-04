@@ -40,6 +40,17 @@ Requires(postun):  initscripts
 %global debug_package %{nil}
 %global __os_install_post /usr/lib/rpm/brp-compress %{nil}
 
+%if 0%{?rhel} && 0%{?rhel} < 7
+# https://fedoraproject.org/wiki/EPEL:Packaging_Autoprovides_and_Requires_Filtering
+%{?filter_requires_in: %filter_requires_in -P (%{_datadir}/nova-agent/.*|%{_sbindir}/nova-agent)$}
+%{?filter_provides_in: %filter_provides_in -P (%{_datadir}/nova-agent/.*|%{_sbindir}/nova-agent)$}
+%{?filter_setup}
+%else
+# https://fedoraproject.org/wiki/Packaging:AutoProvidesAndRequiresFiltering
+%global __requires_exclude_from ^(%{_datadir}/nova-agent/.*|%{_sbindir}/nova-agent)$
+%global __provides_exclude_from ^(%{_datadir}/nova-agent/.*|%{_sbindir}/nova-agent)$
+%endif
+
 
 %description
 This guest agent provides functionality such as configuring the networking for a guest.
@@ -120,6 +131,7 @@ fi
 - Add standard scriptlets
 - Overhaul sysvinit script
 - Clean up systemd service file
+- Filter requires and provides
 
 * Wed Oct 15 2014 Greg Ball <greg.ball@rackspace.com> - 1.39.1-1
 - 1.39.1 release

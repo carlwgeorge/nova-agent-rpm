@@ -1,12 +1,13 @@
 Name:           nova-agent
 Version:        1.39.1
-Release:        1
+Release:        2%{?dist}
 Summary:        openstack linux guest agent, nova-agent binary
 Group:          System Environment/Base
 Vendor:         OpenStack
 License:        GPL
 URL:            https://github.com/rackerlabs/openstack-guest-agents-unix
 Source0:        nova-agent-Linux-x86_64-1.39.1.tar.gz
+ExclusiveArch:  x86_64
 
 # these are important
 # https://fedoraproject.org/wiki/Packaging:FrequentlyMadeMistakes?rd=Packaging/FrequentlyMadeMistakes
@@ -49,5 +50,8 @@ fi
 
 
 %changelog
+* Fri Mar 04 2016 Carl George <carl.george@rackspace.com> - 1.39.1-2
+- Add ExclusiveArch to match the pre-compiled binary tarball
+
 * Wed Oct 15 2014 Greg Ball <greg.ball@rackspace.com> - 1.39.1-1
 - 1.39.1 release

@@ -2,9 +2,8 @@ Name:           nova-agent
 Version:        1.39.1
 Release:        1
 Summary:        openstack linux guest agent, nova-agent binary
-Group:		System Environment/Base
-Vendor:		OpenStack
-
+Group:          System Environment/Base
+Vendor:         OpenStack
 License:        GPL
 URL:            https://github.com/rackerlabs/openstack-guest-agents-unix
 Source0:        nova-agent-Linux-x86_64-1.39.1.tar.gz
@@ -15,23 +14,29 @@ Source0:        nova-agent-Linux-x86_64-1.39.1.tar.gz
 %global debug_package %{nil}
 %global __os_install_post /usr/lib/rpm/brp-compress %{nil}
 
+
 %description
 This guest agent provides functionality such as configuring the networking for a guest.
 
+
 %prep
 tar -xzvf nova-agent-Linux-x86_64-1.39.1.tar.gz -C $RPM_BUILD_DIR
+
 
 %install
 mkdir -p $RPM_BUILD_ROOT/usr/share/nova-agent-install
 rm -f $RPM_BUILD_DIR/usr/share/nova-agent/1.39.1/etc/gentoo/nova-agent
 mv $RPM_BUILD_DIR/* $RPM_BUILD_ROOT/usr/share/nova-agent-install
 
+
 %files
 /usr/share/nova-agent-install/*
+
 
 %post -p /bin/bash
 cd /usr/share/nova-agent-install
 ./installer.sh
+
 
 %preun
 if [ $1 -eq 0 ] ; then

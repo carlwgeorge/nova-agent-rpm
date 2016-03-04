@@ -119,6 +119,7 @@ fi
 - Add dual systemd/sysvinit compatibility
 - Add standard scriptlets
 - Overhaul sysvinit script
+- Clean up systemd service file
 
 * Wed Oct 15 2014 Greg Ball <greg.ball@rackspace.com> - 1.39.1-1
 - 1.39.1 release

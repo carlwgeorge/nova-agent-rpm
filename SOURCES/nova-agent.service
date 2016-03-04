@@ -1,11 +1,12 @@
 [Unit]
 Description=nova-agent service
+Requires=xe-linux-distribution.service
+After=xe-linux-distribution.service
 
 [Service]
+Environment=PYTHONPATH=/usr/share/nova-agent/1.39.1/lib/python2.6:/usr/share/nova-agent/1.39.1/lib/python2.6/site-packages
 Environment=LD_LIBRARY_PATH=/usr/share/nova-agent/1.39.1/lib
-EnvironmentFile=-/etc/nova-agent.env
-ExecStart=/usr/sbin/nova-agent -n -l info /usr/share/nova-agent/nova-agent.py
-
+ExecStart=/usr/sbin/nova-agent -n -l info /usr/share/nova-agent/1.39.1/nova-agent.py
 
 [Install]
 WantedBy=multi-user.target

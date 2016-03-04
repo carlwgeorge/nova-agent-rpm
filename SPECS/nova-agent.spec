@@ -2,7 +2,9 @@ Name:           nova-agent
 Version:        1.39.1
 Release:        2%{?dist}
 Summary:        Unix Guest Agent for Openstack
+%if 0%{?rhel} && 0%{?rhel} < 7
 Group:          System Environment/Base
+%endif
 Vendor:         OpenStack
 License:        ASL 2.0
 URL:            https://github.com/rackerlabs/openstack-guest-agents-unix

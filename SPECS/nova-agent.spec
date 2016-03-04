@@ -9,9 +9,6 @@ License:        GPL
 URL:            https://github.com/rackerlabs/openstack-guest-agents-unix
 Source0:        nova-agent-Linux-x86_64-1.39.1.tar.gz
 
-BuildRequires:  bash
-Requires:       bash
-
 # these are important
 # https://fedoraproject.org/wiki/Packaging:FrequentlyMadeMistakes?rd=Packaging/FrequentlyMadeMistakes
 %global _enable_debug_package 0
@@ -22,13 +19,9 @@ Requires:       bash
 This guest agent provides functionality such as configuring the networking for a guest.
 
 %prep
-cd $RPM_BUILD_DIR
-rm -rf 
-cd $RPM_SOURCE_DIR
 tar -xzvf nova-agent-Linux-x86_64-1.39.1.tar.gz -C $RPM_BUILD_DIR
 
 %install
-rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/share/nova-agent-install
 rm -f $RPM_BUILD_DIR/usr/share/nova-agent/1.39.1/etc/gentoo/nova-agent
 mv $RPM_BUILD_DIR/* $RPM_BUILD_ROOT/usr/share/nova-agent-install
@@ -49,9 +42,6 @@ if [ $1 -eq 0 ] ; then
     rm -f /etc/init.d/nova-agent
 fi
 
-%clean
-rm -rf $RPM_BUILD_DIR
-rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Wed Oct 15 2014 Greg Ball <greg.ball@rackspace.com> - 1.39.1-1

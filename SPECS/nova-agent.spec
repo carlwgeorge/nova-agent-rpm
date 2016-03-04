@@ -54,3 +54,5 @@ rm -rf $RPM_BUILD_DIR
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Wed Oct 15 2014 Greg Ball <greg.ball@rackspace.com> - 1.39.1-1
+- 1.39.1 release

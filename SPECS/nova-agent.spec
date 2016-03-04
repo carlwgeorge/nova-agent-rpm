@@ -4,7 +4,7 @@ Release:        2%{?dist}
 Summary:        openstack linux guest agent, nova-agent binary
 Group:          System Environment/Base
 Vendor:         OpenStack
-License:        GPL
+License:        ASL 2.0
 URL:            https://github.com/rackerlabs/openstack-guest-agents-unix
 Source0:        nova-agent-Linux-x86_64-1.39.1.tar.gz
 ExclusiveArch:  x86_64
@@ -52,6 +52,7 @@ fi
 %changelog
 * Fri Mar 04 2016 Carl George <carl.george@rackspace.com> - 1.39.1-2
 - Add ExclusiveArch to match the pre-compiled binary tarball
+- License is ASL 2.0, not GPL
 
 * Wed Oct 15 2014 Greg Ball <greg.ball@rackspace.com> - 1.39.1-1
 - 1.39.1 release

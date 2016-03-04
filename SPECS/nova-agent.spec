@@ -1,5 +1,5 @@
 Name:           nova-agent
-Version:        1.39
+Version:        1.39.1
 Release:        1
 Summary:        openstack linux guest agent, nova-agent binary
 Group:		System Environment/Base
